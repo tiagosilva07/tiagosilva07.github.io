@@ -1,128 +1,11 @@
 "use client";
 
-import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaAngular,FaJava } from "react-icons/fa";
-import { SiCsharp, SiTailwindcss, SiNextdotjs } from "react-icons/si";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../../components/ui/tooltip";
-import {ScroolArea} from "../../components/ui/scroll-area"
 import { motion } from "framer-motion";
-
-const about ={
-  title:'About me',
-  description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  info: [
-    {
-      fieldName:'Name',
-      fieldValue:'Tiago Silva'
-    },
-    {
-      fieldName:'Experience',
-      fieldValue:'5 years'
-    },
-    {
-      fieldName:'Nationality',
-      fieldValue:'Portuguese'
-    },
-    {
-      fieldName:'Languages',
-      fieldValue:'Portuguese and English'
-    },
-  ]
-};
-
-const experience ={
-    icon:'/assets/resume/badge.svg',
-    title:'My experience',
-    description:'Lorem ipsum dolor sit amet, consectetur adipiscing elitsed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    items:[
-      {
-        company: '',
-        position:'',
-        duration:''
-      },
-      {
-        company: '',
-        position:'',
-        duration:''
-      },
-      {
-        company: '',
-        position:'',
-        duration:''
-      }
-    ]
-}
-
-const education ={
-  icon:'/assets/resume/cap.svg',
-  title:'My Education',
-  description:'Lorem ipsum dolor sit amet, consectetur adipiscing elitsed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  items:[
-    {
-      institution: '',
-      degree:'',
-      duration:''
-    },
-    {
-      institution: '',
-      degree:'',
-      duration:''
-    },
-    {
-      institution: '',
-      degree:'',
-      duration:''
-    }
-  ]
-}
-
-const skill ={
-  title: 'My Skills',
-  description:'',
-  skillList:[
-    {
-      icon:<FaHtml5/>,
-      name: 'Html 5'
-    },
-    {
-      icon:<FaCss3/>,
-      name: 'CSS 3'
-    },
-    {
-      icon:<SiTailwindcss/>,
-      name: 'TailWindCSS'
-    },   
-    {
-      icon:<FaJs/>,
-      name: 'JavaScript'
-    },
-    {
-      icon:<SiNextdotjs/>,
-      name:'Next.js'
-    },
-    {
-      icon:<FaReact/>,
-      name: 'React'
-    },
-    {
-      icon:<FaAngular/>,
-      name: 'Angular'
-    },
-    {
-      icon:<FaNodeJs/>,
-      name: 'Node JS'
-    },
-    {
-      icon:<FaJava/>,
-      name: 'Java'
-    },
-    {
-      icon:<SiCsharp/>,
-      name: 'CSharp'
-    },
-  ]
-}
+import Experience from '../../components/Experience';
+import Education from "../../components/Education";
+import Skills from "../../components/Skills";
+import About from "../../components/About";
 
 function page() {
   return (
@@ -137,10 +20,18 @@ function page() {
           <TabsTrigger value="skills">Skills</TabsTrigger>
         </TabsList>
         <div className="min-h-[70vh] w-full">
-          <TabsContent value="about" className="w-full"></TabsContent>
-          <TabsContent value="esducation" className="w-full"></TabsContent>
-          <TabsContent value="experience" className="w-full"></TabsContent>
-          <TabsContent value="skills" className="w-full"></TabsContent>
+          <TabsContent value="about" className="w-full h-full text-center xl:text-left">
+          <About />
+          </TabsContent>
+          <TabsContent value="esducation" className="w-full">
+            <Education/>
+          </TabsContent>
+          <TabsContent value="experience" className="w-full">
+            <Experience/>
+          </TabsContent>
+          <TabsContent value="skills" className="w-full h-full">
+            <Skills/>
+          </TabsContent>
         </div>
       </Tabs>
      </div>
