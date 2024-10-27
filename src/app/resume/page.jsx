@@ -40,7 +40,7 @@ function Resume() {
             >
               <About />
             </TabsContent>
-            <TabsContent value="esducation" className="w-full">
+            <TabsContent value="education" className="w-full">
               <Education />
             </TabsContent>
             <TabsContent value="experience" className="w-full">

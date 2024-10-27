@@ -1,34 +1,5 @@
 import { ScrollArea } from "./ui/scroll-area";
-
-const calculateTime = (start, end) => {
-  const startDate = new Date(start);
-  const endDate = new Date(end);
-
-  let years = endDate.getFullYear() - startDate.getFullYear();
-  let months = endDate.getMonth() - startDate.getMonth();
-  let days = endDate.getDate() - startDate.getDate();
-  if (days < 0) {
-    months -= 1;
-    const previousMonth = new Date(
-      endDate.getFullYear(),
-      endDate.getMonth(),
-      0
-    );
-    days += previousMonth.getDate();
-  }
-
-  if (months < 0) {
-    years -= 1;
-    months += 12;
-  }
-
-  const parts = [];
-  if (years) parts.push(`${years} year${years > 1 ? "s" : ""}`);
-  if (months) parts.push(`${months} month${months > 1 ? "s" : ""}`);
-  if (days) parts.push(`${days} day${days > 1 ? "s" : ""}`);
-
-  return parts.join(", ") || "No difference";
-};
+import { calculateTime } from "@/lib/utils";
 
 const experience = {
   icon: "/assets/resume/badge.svg",
@@ -75,6 +46,7 @@ const Experience = () => {
       <h3 className="text-4xl font-bold ">{experience.title}</h3>
       <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 xl:max-w-full">
         {experience.description}
+
       </p>
       <ScrollArea className="h-[600px]">
         <ul className="grid grid-cols-1 lg:grid-cols-1 gap-[30px]">
@@ -84,7 +56,9 @@ const Experience = () => {
                 key={index}
                 className="bg-[#232329] h-[auto] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg: items-start gap-1"
               >
-                <p className="text-white/60">{item.company}</p>
+                <p className="flex items-center gap-3 text-white/60">
+                {item.company}
+                </p>
                 <span className="text-accent">{item.duration}</span>
                 <h3 className="text.xl max-w-[260px] min-h-[60px] text-center lg:text-left xl:max-w-[520px]">
                   {item.position}

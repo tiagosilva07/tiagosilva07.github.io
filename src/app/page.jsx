@@ -1,6 +1,6 @@
-import { Button } from "../components/ui/button";
+import { buttonVariants } from "../components/ui/button";
 import { FiDownload } from "react-icons/fi";
-
+import Link from "next/link";
 import Social from "../components/Social";
 import Photo from "../components/Photo";
 import Stats from "../components/Stats";
@@ -23,14 +23,9 @@ const Home = () => {
                 support and problem-solving.
               </p>
               <div className="flex flex-col xl:flex-row items-center gap-8">
-                <Button
-                  variants="outline"
-                  size="lg"
-                  className="uppercase flex items-center gap-2"
-                >
-                  <span>Downlaod CV</span>
+              <Link className={`${buttonVariants({ variant: "outline" }) } uppercase flex items-center gap-2`} href="/assets/tiagosilva.pdf">Download CV
                   <FiDownload className="text-xl" />
-                </Button>
+                  </Link>
                 <div className="mb-8 xl:mb-0">
                   <Social />
                 </div>
