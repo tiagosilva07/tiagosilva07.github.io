@@ -19,45 +19,45 @@ const projects = [
     num: "01",
     category: "frontend",
     title: "Project 1",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
+    description: `This was my personal resume website`,
+    stack: [{name:"Next.js"},{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
     image: "/assets/work/thumb1.png",
-    live: "tiagosilva07.github.io",
+    live: "https://tiagosilva07.github.io",
     github: "https://github.com/tiagosilva07/tiagosilva07.github.io",
   },
   {
     num: "02",
-    category: "Full-Stack",
-    title: "Project 2",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Java" }],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "https://github.com/tiagosilva07/justintime",
-  },
-  {
-    num: "03",
     category: "frontend",
-    title: "Project 3",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
-    image: "/assets/work/thumb3.png",
+    title: "Simple Emoji hub",
+    description: `This project, Simple Emoji Hub, was developed to enhance my skills in React and create a practical, interactive application. The Emoji Hub allows users to explore and search through a list of emojis with a clean, simple interface`,
+    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "React + Vite" }],
+    image: "/assets/work/thumb2.png",
     live: "",
     github: "https://github.com/tiagosilva07/my-emoji-hub",
   },
   {
-    num: "04",
-    category: "Full-Stack",
-    title: "Project 4",
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
-    image: "/assets/work/thumb3.png",
+    num: "03",
+    category: "full-stack",
+    title: "MasterPlat",
+    description: `This work was carried out as part of the Web Programming course in the Master's program in Computer Engineering, specializing in Application Development, at the Polytechnic Institute of Cávado and Ave.
+The objective of this project is to create a REST API based on NodeJS that enables the management and aggregation of theses from various sources, as well as performing searches related to them.
+A CRUD was created to manage the aggregation, expecting an OAI-PMH response in XML format. All information comes from providers, which represent scientific repositories from various universities, and is stored in a MongoDB database, along with all aggregated data.
+To support this API, and to document and test all its functionalities, the Swagger framework was used. On the frontend, a layout was created using the Bootstrap framework.`,
+    stack: [{ name: "Bootstrap" }, { name: "mongodb" }, { name: "Node.js" },{name: "Swagger"}],
+    image: "/assets/work/not_available.png",
     live: "",
     github: "https://github.com/tiagosilva07/masterplat",
+  },
+  {
+    num: "04",
+    category: "Full-Stack",
+    title: "JustInTime",
+    description: `The JustInTime project was the final project required to complete the university program. It is an online platform designed to provide information on employee and team vacation schedules, helping managers make informed decisions when assigning projects. This functionality ensures that projects are not allocated to teams with reduced capacity due to scheduled vacations, which could potentially impact project outcomes. Knowing in advance about reduced team availability allows managers to assign projects to alternative teams or, if necessary, adjust deadlines for specific teams.
+The project scope includes planning and developing both the front-end (presentation layer) and the back-end of the platform. While certain vacation management features are not included in this version, the project architecture has been designed to support future expansions, making it easier to add new functionalities in subsequent versions.`,
+    stack: [{ name: "Java" },{ name: "Spring Framework" }, { name: "Thymeleaf" }, { name: "MySQl" }, { name: "Hibernate" }],
+    image: "/assets/work/thumb4.png",
+    live: "",
+    github: "https://github.com/tiagosilva07/justintime",
   },
 ];
 
@@ -91,12 +91,12 @@ function Work() {
                 {project.category} project
               </h2>
               {/**description */}
-              <p className="text-white/60">{project.description}</p>
+              <p className="text-white/60 text-justify">{project.description}</p>
               {/**stack */}
-              <ul className="flex gap-4">
+              <ul className="flex gap-3">
                 {project.stack.map((item, index) => {
                   return (
-                    <li key={index} className="text-xl text-accent">
+                    <li key={index} className="text-md text-accent text-center">
                       {item.name} {index !== project.stack.length - 1 && "|"}
                     </li>
                   );
@@ -107,7 +107,7 @@ function Work() {
               {/**Buttons */}
               <div className="flex items-center gap-4">
                 {/**live project button */}
-                <Link href={project.live}>
+                <Link href={project.live} target="_blank" className={project.live? " ": "pointer-events-none opacity-50 cursor-not-allowed"}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -120,7 +120,7 @@ function Work() {
                   </TooltipProvider>
                 </Link>
                 {/**github project button */}
-                <Link href={project.github}>
+                <Link href={project.github} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -150,9 +150,10 @@ function Work() {
                       <div className="relative w-full h-full">
                         <Image
                           src={project.image}
-                          fill
                           className="object-cover"
-                          alt=""
+                          alt="picture of tiago silva"
+                          width={585}
+                          height={460}
                         />
                       </div>
                     </div>

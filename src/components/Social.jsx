@@ -3,9 +3,9 @@ import { FaGithub, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 const Social = () => {
   const socials = [
-    { icon: <FaGithub />, path: "" },
-    { icon: <FaLinkedinIn />, path: "" },
-    { icon: <FaYoutube />, path: "" },
+    { icon: <FaGithub />, path: "https://github.com/tiagosilva07" },
+    { icon: <FaLinkedinIn />, path: "https://www.linkedin.com/in/tiago-silva-03162b3b/" },
+    { icon: <FaYoutube />, path: "https://www.youtube.com/@tiagosilva47537" },
   ];
   return (
     <div className="flex gap-6">
